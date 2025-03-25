@@ -20,6 +20,7 @@ class ProductoController extends Controller
             'precio' => 'required|numeric',
             'en_oferta' => 'required|boolean',
             'categoria_id' => 'required|exists:categorias,id_cat',
+            'imagen' => 'nullable|string',
         ]);
 
         $producto = Producto::create($request->all());
@@ -47,6 +48,7 @@ class ProductoController extends Controller
             'precio' => 'sometimes|required|numeric',
             'en_oferta' => 'sometimes|required|boolean',
             'categoria_id' => 'sometimes|required|exists:categorias,id_cat',
+            'imagen' => 'nullable|string',
         ]);
 
         $producto = Producto::where('id_prod', $id)->first();

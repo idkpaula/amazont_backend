@@ -17,6 +17,7 @@ class CategoriaController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'nullable|string',
+            'imagen' => 'nullable|string',
         ]);
 
         $categoria = Categoria::create($request->all());
@@ -40,6 +41,7 @@ class CategoriaController extends Controller
         $request->validate([
             'nombre' => 'sometimes|required|string|max:255',
             'descripcion' => 'nullable|string',
+            'imagen' => 'nullable|string',
         ]);
 
         $categoria->update($request->all());

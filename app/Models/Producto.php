@@ -13,7 +13,7 @@ class Producto extends Model
     protected $primaryKey = 'id_prod'; // Definir la clave primaria correcta
     public $timestamps = true; // Habilitar timestamps
 
-    protected $fillable = ['nombre', 'descripcion', 'precio', 'en_oferta', 'categoria_id'];
+    protected $fillable = ['nombre', 'descripcion', 'precio', 'en_oferta', 'categoria_id', 'imagen'];
 
     public function categoria()
     {

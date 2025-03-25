@@ -13,7 +13,7 @@ class Categoria extends Model
     protected $primaryKey = 'id_cat';
 
     // Definir los campos que se pueden llenar masivamente
-    protected $fillable = ['nombre', 'descripcion'];
+    protected $fillable = ['nombre', 'descripcion', 'imagen'];
 
     // Relación con el modelo Producto
     public function productos()
