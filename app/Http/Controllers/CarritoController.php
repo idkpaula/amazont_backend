@@ -16,7 +16,7 @@ class CarritoController extends Controller
         return response()->json($carrito, 201);
     }
 
-    // Modificar carrito: añadir o quitar productos, cambiar estado
+    // Modificar carrito: añadir o quitar productos, cambiar estado. Además puedes añadir y quitar productos de una sola vez, es decir, en una misma consulta
     public function modificarCarrito(Request $request, $id)
     {
         $carrito = Carrito::findOrFail($id);
@@ -44,7 +44,7 @@ class CarritoController extends Controller
         return response()->json(['mensaje' => 'Carrito actualizado correctamente']);
     }
 
-    // Mostrar carrito
+    // Mostrar carrito 
     public function mostrarCarrito($id)
     {
         $carrito = Carrito::with('productos')->findOrFail($id);
