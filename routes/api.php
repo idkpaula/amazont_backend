@@ -33,3 +33,11 @@ Route::delete('/valoraciones/{id}', [ValoracionController::class, 'destroy']); /
 Route::post('/carritos', [CarritoController::class, 'crearCarrito']); // Ruta para crear  
 Route::put('/carritos/{id}', [CarritoController::class, 'modificarCarrito']); // Ruta para modificar
 Route::get('/carritos/{id}', [CarritoController::class, 'mostrarCarrito']); // Ruta para mostrar
+
+// PROCESO DE PAGO
+Route::post('/pago', [PaymentController::class, 'store']);
+
+// ADMINISTRACIÓN DE PRODUCTOS
+Route::get('/productos/{vendedor_id}', [ProductController::class, 'index']);
+Route::post('/productos', [ProductController::class, 'store']);
+Route::put('/productos/{id}', [ProductController::class, 'update']);
