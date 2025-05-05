@@ -6,7 +6,7 @@ use App\Models\Opinion;
 use Illuminate\Http\Request;
 
 class OpinionController extends Controller
-{
+{ 
     public function index($producto_id)
     {
         $opiniones = Opinion::where('producto_id', $producto_id)->with('usuario')->get();

@@ -56,3 +56,4 @@ class CategoriaController extends Controller
         return response()->json(['message' => 'Categoría eliminada correctamente']);
     }
 }
+ 

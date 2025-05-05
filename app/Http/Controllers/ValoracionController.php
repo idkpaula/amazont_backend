@@ -6,7 +6,7 @@ use App\Models\Valoracion;
 use Illuminate\Http\Request;
 
 class ValoracionController extends Controller
-{
+{ 
     public function index($producto_id)
     {
         $valoraciones = Valoracion::where('producto_id', $producto_id)->with('usuario')->get();

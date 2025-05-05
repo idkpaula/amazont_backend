@@ -6,7 +6,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\OpinionController;
 use App\Http\Controllers\ValoracionController;
-use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\CarritoController; 
 
 // USUARIO O ADMIN
 Route::post('/register', [AuthController::class, 'register']); // Ruta para registro
@@ -21,7 +21,7 @@ Route::apiResource('categorias', CategoriaController::class); // Ruta para crear
 Route::apiResource('productos', ProductoController::class); // Ruta para crear, modificar, mostrar y eliminar
 
 // OPINIONES Y VALORACIONES
-Route::get('/productos/{id}/opiniones', [OpinionController::class, 'index']); // Ruta para obtener las 
+Route::get('/productos/{id}/opiniones', [OpinionController::class, 'index']); // Ruta para obtener 
 Route::post('/opiniones', [OpinionController::class, 'store']); // Ruta para crear
 Route::delete('/opiniones/{id}', [OpinionController::class, 'destroy']); // Ruta para eliminar 
 
@@ -38,6 +38,6 @@ Route::get('/carritos/{id}', [CarritoController::class, 'mostrarCarrito']); // R
 Route::post('/pago', [PaymentController::class, 'store']);
 
 // ADMINISTRACIÓN DE PRODUCTOS
-Route::get('/productos/{vendedor_id}', [ProductController::class, 'index']);
-Route::post('/productos', [ProductController::class, 'store']);
-Route::put('/productos/{id}', [ProductController::class, 'update']);
+Route::get('/products/{vendedor_id}', [ProductController::class, 'index']);
+Route::post('/products', [ProductController::class, 'store']);
+Route::put('/products/{id}', [ProductController::class, 'update']);
