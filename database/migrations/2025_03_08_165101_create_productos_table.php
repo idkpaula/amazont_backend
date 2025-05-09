@@ -18,6 +18,7 @@ return new class extends Migration
             $table->decimal('precio', 8, 2);
             $table->boolean('en_oferta')->default(false);
             $table->string('imagen')->nullable();
+            $table->integer('stock');
             $table->unsignedBigInteger('categoria_id'); // Asegúrate de que sea unsignedBigInteger
             $table->foreign('categoria_id')->references('id_cat')->on('categorias')->onDelete('cascade'); // Relación con la columna id_cat
             $table->timestamps();
