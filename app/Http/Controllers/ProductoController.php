@@ -30,8 +30,7 @@ class ProductoController extends Controller
 
     public function show($id)
     {
-        // Buscar el producto por id_prod
-        $producto = Producto::with('categoria')->where('id_prod', $id)->first();
+        $producto = Producto::with(['opiniones', 'valoraciones'])->findOrFail($id);
 
         if (!$producto) {
             return response()->json(['message' => 'Producto no encontrado'], 404);

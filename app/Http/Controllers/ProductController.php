@@ -1,5 +1,5 @@
 <?php
-
+// Controlador para la tabla de los vendedores
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
