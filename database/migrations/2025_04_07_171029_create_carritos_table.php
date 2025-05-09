@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('carritos', function (Blueprint $table) {
             $table->id('id_carro');
-            $table->string('usuario');
+            $table->foreignId('user_id')->constrained('users');
             $table->enum('estado', ['activo', 'finalizado'])->default('activo');
             $table->timestamps();
         });

@@ -14,7 +14,7 @@ return new class extends Migration
     Schema::create('payment_methods', function (Blueprint $table) {
         $table->id('id_metodo');
         $table->unsignedBigInteger('user_id');
-        $table->string('tipo');
+        $table->enum('tipo', ['tarjeta', 'paypal']);
         $table->string('nombre')->nullable();
         $table->string('num_tarjeta')->nullable();
         $table->string('fecha_caducidad')->nullable();

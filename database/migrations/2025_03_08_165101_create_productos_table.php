@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('nombre');
             $table->text('descripcion');
             $table->decimal('precio', 8, 2);
+            $table->integer('stock');
             $table->boolean('en_oferta')->default(false);
             $table->string('imagen')->nullable();
-            $table->integer('stock');
-            $table->unsignedBigInteger('categoria_id'); // Asegúrate de que sea unsignedBigInteger
+            $table->unsignedBigInteger('categoria_id'); 
             $table->foreign('categoria_id')->references('id_cat')->on('categorias')->onDelete('cascade'); // Relación con la columna id_cat
             $table->timestamps();
     });

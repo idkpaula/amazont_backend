@@ -1,4 +1,5 @@
 <?php
+// Esta tabla es para la pagina de los vendedores para que creen productos y puedan modificar los ya existentes 
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -33,3 +34,4 @@ return new class extends Migration
         Schema::dropIfExists('products');
     }
 };
+
