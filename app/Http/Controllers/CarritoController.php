@@ -44,6 +44,19 @@ class CarritoController extends Controller
         return response()->json(['mensaje' => 'Carrito actualizado correctamente']);
     }
 
+    public function agregarProducto(Request $request, $carritoId)
+    {
+        $carrito = Carrito::findOrFail($carritoId);
+        $producto = Producto::findOrFail($request->producto_id);
+
+        if ($producto->stock < $request->cantidad) {
+            return response()->json(['error' => 'Stock insuficiente'], 400);
+        }
+
+        $carrito->productos()->attach($producto->id_prod, ['cantidad' => $request->cantidad]);
+        return response()->json(['mensaje' => 'Producto añadido al carrito']);
+    }
+
     // Mostrar carrito 
     public function mostrarCarrito($id)
     {

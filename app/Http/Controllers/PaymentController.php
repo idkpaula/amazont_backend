@@ -9,6 +9,27 @@ use Illuminate\Support\Facades\DB;
 
 class PaymentController extends Controller
 {
+    public function finalizarCompra(Request $request, $carritoId)
+    {
+        $carrito = Carrito::with('productos')->findOrFail($carritoId);
+
+        foreach ($carrito->productos as $producto) {
+            if ($producto->stock < $producto->pivot->cantidad) {
+                return response()->json(['error' => 'Stock insuficiente en: ' . $producto->nombre], 400);
+            }
+        }
+
+        foreach ($carrito->productos as $producto) {
+            $producto->stock -= $producto->pivot->cantidad;
+            $producto->save();
+        }
+
+        $carrito->estado = 'finalizado';
+        $carrito->save();
+
+        return response()->json(['mensaje' => 'Compra finalizada con éxito']);
+    }
+
     public function store(Request $request)
     {
         $request->validate([
