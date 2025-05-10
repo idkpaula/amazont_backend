@@ -12,7 +12,7 @@ class CarritoController extends Controller
     public function crearCarrito(Request $request)
     {
         $request->validate(['usuario' => 'required|string']);
-        $carrito = Carrito::create(['usuario' => $request->usuario]);
+        $carrito = Carrito::create(['user_id' => $request->usuario]);
         return response()->json($carrito, 201);
     }
 
