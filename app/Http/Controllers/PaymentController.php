@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\PaymentMethod;
 use Illuminate\Support\Facades\DB;
+use App\Models\Carrito;
 
 class PaymentController extends Controller
 {
@@ -51,9 +52,10 @@ class PaymentController extends Controller
         ]));
 
         // Aquí deberías finalizar el carrito
-        DB::table('carritos')->where('usuario', $request->user_id)->update([
+        DB::table('carritos')->where('user_id', $request->user_id)->update([
             'estado' => 'finalizado'
         ]);
+
 
         return response()->json(['message' => 'Compra realizada con éxito', 'metodo' => $metodo]);
     }
